@@ -1,6 +1,6 @@
 locals {
-  output_role_read_id    = "${compact(concat(coalescelist(kibana_role.read.*.id), list("")))}"
-  output_role_read_name  = "${compact(concat(coalescelist(kibana_role.read.*.name), list("")))}"
+  output_role_read_id    = "${compact(concat(kibana_role.read.*.id, list("")))}"
+  output_role_read_name  = "${compact(concat(kibana_role.read.*.name, list("")))}"
 }
 
 
