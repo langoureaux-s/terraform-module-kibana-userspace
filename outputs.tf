@@ -1,6 +1,6 @@
 locals {
-  role_read_id    = "${compact(concat(coalescelist(kibana_role.read.*.id), list("")))}"
-  role_read_name  = "${compact(concat(coalescelist(kibana_role.read.*.name), list("")))}"
+  output_role_read_id    = "${compact(concat(coalescelist(kibana_role.read.*.id), list("")))}"
+  output_role_read_name  = "${compact(concat(coalescelist(kibana_role.read.*.name), list("")))}"
 }
 
 
@@ -21,9 +21,9 @@ output "role_write_name" {
 }
 
 output "role_read_id" {
-  value = "${join("", local.role_read_id)}"
+  value = "${join("", local.output_role_read_id)}"
 }
 
 output "role_read_name" {
-  value = "${join("", local.role_read_name)}"
+  value = "${join("", local.output_role_read_name)}"
 }
