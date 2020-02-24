@@ -6,7 +6,7 @@ variable "description" {
 }
 variable "disabled_features" {
   description = "List of features to disable"
-  type        = "list"
+  type        = "list(string)"
   default     = [
     "advancedSettings",
     "graph",
@@ -18,16 +18,24 @@ variable "disabled_features" {
     "uptime"
   ]
 }
-variable "index_pattern" {
-  description = "Index pattern saved object to import"
-  default = ""
+variable "copy_objects" {
+  description = "The list of object to copy"
+  type = list(object({
+    id   = string
+    type = string
+  })
+  default = []
+}
+variable "source_space" {
+  description = "The source user space to use when copy"
+  default     = "default"
 }
 variable "groups_write" {
   description = "List of groups that can access on read / write"
-  type        = "list"
+  type        = "list(string)"
 }
 variable "groups_read" {
   description = "List of groups that can access on read only"
-  type        = "list"
+  type        = "list(string)"
   default     = []
 }
