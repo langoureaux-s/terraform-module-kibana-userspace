@@ -11,6 +11,6 @@ resource elasticsearch_role_mapping "read" {
     count   = "${length(var.groups_read) > 0 ? 1 : 0}"
     name    = local.role_read_name
     enabled = "true"
-    roles   = ["${kibana_role.read.name}"]
+    roles   = ["${kibana_role.read[count.index].name}"]
     rules   = local.groups_read
 }
