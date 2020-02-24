@@ -6,7 +6,7 @@ variable "description" {
 }
 variable "disabled_features" {
   description = "List of features to disable"
-  type        = "list(string)"
+  type        = list(string)
   default     = [
     "advancedSettings",
     "graph",
@@ -32,10 +32,10 @@ variable "source_space" {
 }
 variable "groups_write" {
   description = "List of groups that can access on read / write"
-  type        = "list(string)"
+  type        = list(string)
 }
 variable "groups_read" {
   description = "List of groups that can access on read only"
-  type        = "list(string)"
+  type        = list(string)
   default     = []
 }
