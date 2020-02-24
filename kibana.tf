@@ -16,7 +16,7 @@ resource "kibana_role" "write" {
 
 # Create read role if needed
 resource "kibana_role" "read" {
-  count = "${length(var.groups_read) > 0 ? 1 : 0}"
+  count = length(var.groups_read) > 0 ? 1 : 0
   name  = local.role_read_name
   kibana {
     base    = ["read"]
