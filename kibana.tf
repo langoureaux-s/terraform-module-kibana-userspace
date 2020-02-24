@@ -26,7 +26,7 @@ resource "kibana_role" "read" {
 
 # Copy object if needed
 resource kibana_copy_object "test" {
-  for_each      = var.copy_objects
+  for_each      = toset(var.copy_objects)
   name          = "copy_object"
   source_space  = var.source_space
   target_spaces = ["${kibana_user_space.user_space.name}"]
