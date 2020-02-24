@@ -34,4 +34,5 @@ resource kibana_copy_object "test" {
     id   = each.value.id
     type = each.value.type
   }
+  force_update = true
 }
