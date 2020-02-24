@@ -23,7 +23,7 @@ variable "copy_objects" {
   type = list(object({
     id   = string
     type = string
-  })
+  }))
   default = []
 }
 variable "source_space" {
